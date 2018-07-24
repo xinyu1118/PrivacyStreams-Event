@@ -300,6 +300,7 @@ public class ImageEvent<TValue> extends EventType {
                 if (recurrence == null) Log.d(Consts.LIB_TAG, "You haven't set recurrence yet, it couldn't be null.");
 
                 context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,true, imagesObserver);
+                eventCallback.setImageCallbackData(imageCallbackData);
                 break;
 
             case EventType.Image_Has_Face:
@@ -328,6 +329,7 @@ public class ImageEvent<TValue> extends EventType {
                 } else {
                     Log.d(Consts.LIB_TAG, "Please check internal storage, nothing detected.");
                 }
+                eventCallback.setImageCallbackData(imageCallbackData);
                 break;
 
             case Image_FileOrFolder_Updated:
@@ -344,6 +346,7 @@ public class ImageEvent<TValue> extends EventType {
                     Log.d(Consts.LIB_TAG, path+" is being monitored...");
                 filesObserver = new FilesObserver(path);
                 filesObserver.startWatching();
+                eventCallback.setImageCallbackData(imageCallbackData);
                 break;
 
             default:

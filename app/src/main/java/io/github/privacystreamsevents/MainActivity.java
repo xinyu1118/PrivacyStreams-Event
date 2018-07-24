@@ -14,15 +14,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         UQI uqi = new UQI(this);
-
         Globals.LocationConfig.useGoogleService = true;
 
         Examples examples = new Examples(this);
-        examples.AvgLoudnessMonitorEvent();
+        //examples.AvgLoudnessMonitorEvent();
         //examples.MaxLoudnessMonitorEvent();
 
         //examples.geoFenceEvent();
-        //examples.placeCheckingEvent();
+        examples.placeCheckingEvent();
         //examples.locationUpdatesEvent();
         //examples.overspeedEvent();
         //examples.cityUpdatesEvents();

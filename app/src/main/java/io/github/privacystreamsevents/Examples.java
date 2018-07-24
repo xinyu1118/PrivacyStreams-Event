@@ -36,6 +36,7 @@ import io.github.privacystreamsevents.location.Geolocation;
 import io.github.privacystreamsevents.location.GeolocationOperators;
 import io.github.privacystreamsevents.location.LatLon;
 import io.github.privacystreamsevents.utils.Consts;
+import io.github.privacystreamsevents.utils.Globals;
 
 /**
  * Some examples of PrivacyStreams Event for personal data accessing and processing.
@@ -123,11 +124,16 @@ public class Examples {
                 //.setRadius(100.0)
                 .setSamplingMode(10000)
                 .setMaxNumberOfRecurrences(EventType.AlwaysRepeat)
+//                .addOptimizationConstraints(100, 50, 5000, EventType.DefaultPrecision)
+//                .addOptimizationConstraints(50, 15, 10000, EventType.DefaultPrecision)
+//                .addOptimizationConstraints(15, 0, EventType.Off)
                 .build();
         uqi.addEventListener(locationEvent, new GeolocationCallback() {
             @Override
             public void onEvent(GeolocationCallbackData geolocationCallbackData) {
                 Log.d(Consts.LIB_TAG, String.valueOf(geolocationCallbackData.currentTime));
+//                Log.d(Consts.LIB_TAG, geolocationCallbackData.EVENT_TYPE);
+//                Log.d(Consts.LIB_TAG, String.valueOf(geolocationCallbackData.TIME_CREATED));
             }
         });
     }
@@ -236,12 +242,19 @@ public class Examples {
     }
 
     public void callBlockerEvent() {
+
+        /**
+         * Listen to incoming calls and return callbacks if they are from a certain phone number repeatedly.
+         * Make sure the following line is added to AndroidManifest.xml
+         * <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+         * <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+         */
         // request android.permission.READ_PHONE_STATE, android.permission.PROCESS_OUTGOING_CALLS
         EventType callEvent = new ContactEvent.ContactEventBuilder()
                 .setField("caller", CallOperators.callerIdentification())
                 .setComparator(ContactEvent.EQ)
                 .setPhoneNumber("8618515610518")
-                .setMaxNumberOfRecurrences(3)
+                .setMaxNumberOfRecurrences(EventType.AlwaysRepeat)
                 .build();
         uqi.addEventListener(callEvent, new ContactCallback() {
             @Override
@@ -354,6 +367,8 @@ public class Examples {
                         Log.d(Consts.LIB_TAG, email);
                     }
                 }
+//                Log.d(Consts.LIB_TAG, contactCallbackData.EVENT_TYPE);
+//                Log.d(Consts.LIB_TAG, String.valueOf(contactCallbackData.TIME_CREATED));
             }
         });
     }
@@ -364,14 +379,15 @@ public class Examples {
         EventType messageEvent = new MessageEvent.MessageEventBuilder()
                 .setField("sender", MessageOperators.getMessagePhones())
                 .setComparator(MessageEvent.EQ)
-                .setPhoneNumber("8618515610518")
-                //.setCaller("15555215556")
+                //.setPhoneNumber("8618515610518")
+                .setPhoneNumber("15555215556")
                 .setMaxNumberOfRecurrences(EventType.AlwaysRepeat)
                 .build();
         uqi.addEventListener(messageEvent, new MessageCallback() {
             @Override
             public void onEvent(MessageCallbackData messageCallbackData) {
-
+//                Log.d(Consts.LIB_TAG, messageCallbackData.EVENT_TYPE);
+//                Log.d(Consts.LIB_TAG, String.valueOf(messageCallbackData.TIME_CREATED));
             }
         });
     }
@@ -449,7 +465,8 @@ public class Examples {
         uqi.addEventListener(imageEvent, new ImageCallback() {
             @Override
             public void onEvent(ImageCallbackData imageCallbackData) {
-
+//                Log.d(Consts.LIB_TAG, imageCallbackData.EVENT_TYPE);
+//                Log.d(Consts.LIB_TAG, String.valueOf(imageCallbackData.TIME_CREATED));
             }
         });
     }

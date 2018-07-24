@@ -324,6 +324,7 @@ public class MessageEvent<TValue> extends EventType {
                                 }
                             }
                         });
+                eventCallback.setMessageCallbackData(messageCallbackData);
                 break;
 
             case EventType.Message_Lists_Updated:
@@ -334,6 +335,7 @@ public class MessageEvent<TValue> extends EventType {
                 if (recurrence == null) Log.d(Consts.LIB_TAG, "You haven't set recurrence yet, it couldn't be null.");
 
                 context.getContentResolver().registerContentObserver(Uri.parse("content://sms"),true, messagesObserver);
+                eventCallback.setMessageCallbackData(messageCallbackData);
                 break;
 
             case EventType.Message_In_List:

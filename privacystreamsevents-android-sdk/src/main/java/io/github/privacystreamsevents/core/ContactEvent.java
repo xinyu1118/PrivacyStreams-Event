@@ -307,6 +307,7 @@ public class ContactEvent<TValue> extends EventType {
                 if (recurrence == null) Log.d(Consts.LIB_TAG, "You haven't set recurrence yet, it couldn't be null.");
 
                 context.getContentResolver().registerContentObserver(ContactsContract.Contacts.CONTENT_URI,true, contactsObserver);
+                eventCallback.setContactCallbackData(contactCallbackData);
                 break;
 
             case EventType.Contact_Emails_In_Lists:
@@ -381,6 +382,7 @@ public class ContactEvent<TValue> extends EventType {
                                 }
                             }
                         });
+                eventCallback.setContactCallbackData(contactCallbackData);
                 break;
 
             case EventType.Call_Logs_Checking:

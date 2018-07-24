@@ -520,7 +520,7 @@ public class GeolocationEvent<TValue> extends EventType {
                             @Override
                             protected void onInput(LatLon input) {
                                 Double distance = LocationUtils.getDistanceBetween(centerLatLon, input);
-                                Boolean geoFence = distance<=radius ? true: false;
+                                Boolean geoFence = distance <= radius;
 
                                 switch (comparator) {
                                     case IN:
