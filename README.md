@@ -187,6 +187,7 @@ Step 2. Add the dependency
 
 
 That's it!
+
 Note that if you want to **use Google location service** instead of the Android location service, you will need one more step.
 
 The Location APIs in PrivacyStreams Events are based on Google location service. In order to access location with PrivacyStreams Events, you will need to install Google location service. 
@@ -209,7 +210,8 @@ Then in your app code, enable Google location service:
 In Android Studio, the installation involves the following steps:
 
 1 Clone the project to your computer.
-2 pen your own project, import privacysecurer-android-sdk module.
+
+2 Open your own project, import privacysecurer-android-sdk module.
 
 2.1）Click File -> New -> Import module     
 2.2）Select `privacystreamsevents-android-sdk` directory as the source directory
