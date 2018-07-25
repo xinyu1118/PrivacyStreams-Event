@@ -1,8 +1,8 @@
-﻿# PrivacyStreams Events
+﻿# PrivacyStreamsEvents
 
 ---
 
-PrivacyStreams Events is an Android library that helps developers handle events for personal data access contexts in an easy and privacy-friendly way. It offers a functional programming model for various types of personal data, including audios, locations, contacts, messages, images and extensible to more. In PrivacyStreams Events, all types of personal data access and processing events could be generated using builder pattern, afterwards handled with a uniform query interface (UQI).
+PrivacyStreamsEvents is an Android library that helps developers handle events for personal data access contexts in an easy and privacy-friendly way. It offers a functional programming model for various types of personal data, including audios, locations, contacts, messages, images and extensible to more. In PrivacyStreams Events, all types of personal data access and processing events could be generated using builder pattern, afterwards handled with a uniform query interface (UQI).
 
     EventType event = new Event.EventBuilder()
                     .setEventDescription()
@@ -167,9 +167,9 @@ Based on the functions used in the query, PrivacyStreams Events is able to gener
 **Installation**
 ---    
 
-####Option 1. Using Gradle (recommended for the most users)
+**Option 1. Using Gradle (recommended for the most users)**
 
-**Step 1**. Add the JitPack repository to your build file
+Step 1. Add the JitPack repository to your build file
 Add it in your root build.gradle at the end of repositories:
 
 	allprojects {
@@ -179,14 +179,15 @@ Add it in your root build.gradle at the end of repositories:
 		}
 	}
 
-**Step 2**. Add the dependency
+Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.xinyu1118:PrivacySecurer:v1.0.5'
-	}
+        implementation 'com.github.xinyu1118:PrivacyStreamsEvents:v0.1.1'
+    }
+
 
 That's it!
-Note that if you want to use Google location service instead of the Android location service, you will need one more step.
+Note that if you want to **use Google location service** instead of the Android location service, you will need one more step.
 
 The Location APIs in PrivacyStreams Events are based on Google location service. In order to access location with PrivacyStreams Events, you will need to install Google location service. 
 
@@ -203,22 +204,28 @@ Then in your app code, enable Google location service:
     Globals.LocationConfig.useGoogleService = true;
     
 
-####Option 2. From source (recommended for contributors)
+**Option 2. From source (recommended for contributors)**
+
 In Android Studio, the installation involves the following steps:
 
-1. Clone the project to your computer.
-2. Open your own project, import privacysecurer-android-sdk module.
-1）Click File -> New -> Import module     
-2）Select `privacysecurer-android-sdk` directory as the source directory
-3. In your app module, add the following line to dependencies:
-`implementation project(':privacysecurer-android-sdk')`
+1 Clone the project to your computer.
+2 pen your own project, import privacysecurer-android-sdk module.
+
+2.1）Click File -> New -> Import module     
+2.2）Select `privacystreamsevents-android-sdk` directory as the source directory
+
+3 In your app module, add the following line to dependencies:
+`implementation project(':privacystreamsevents-android-sdk')`
 
 **Documentation**
 ---  
-[LINK](file:///Users/xinyuyang/Desktop/JavaDoc/index.html) 
+[LINK][1]
 
 **Other Information**
 ---
 PrivacySecurer is initially developed by Xinyu Yang, under the advisory of Jason Hong and Yuvraj Agarwal, depending on CHIMPS Lab at Carnegie Mellon University and National Engineering Lab for Mobile Network Technologies at Beijing University of Posts and Telecommunications.
 
 Contact Author (xinyuy2@andrew.cmu.edu)
+
+
+  [1]: https://docs.google.com/document/d/13eyGI1-gqV4eXm467RjF6H9XuQYtx-tYG1vwPmzaT04/edit#heading=h.8bthu2z2dnv8
