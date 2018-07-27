@@ -7,16 +7,6 @@ package io.github.privacystreamsevents.core;
 public class AudioCallbackData extends CallbackData {
 
     /**
-     * Intermediate data to be called back, average loudness in dB.
-     */
-    public Double avgLoudness;
-
-    /**
-     * Intermediate data to be called back, maximum loudness in dB.
-     */
-    public Double maxLoudness;
-
-    /**
      * Intermediate data to be called back, such as average or maximum loudness in dB.
      */
     public Double fieldValue;
@@ -24,14 +14,6 @@ public class AudioCallbackData extends CallbackData {
 
     public AudioCallbackData() {
         this.TIME_CREATED = System.currentTimeMillis();
-    }
-
-    public void setAvgLoudness(Double avgLoudness) {
-        this.avgLoudness = avgLoudness;
-    }
-
-    public void setMaxLoudness(Double maxLoudness) {
-        this.maxLoudness = maxLoudness;
     }
 
     public void setFieldValue(Double fieldValue) {
