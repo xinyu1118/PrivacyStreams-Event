@@ -57,9 +57,9 @@ public class Examples {
                 .setFieldConstraints(30.0)
                 .setSamplingMode(10000, 1000)
                 .setMaxNumberOfRecurrences(EventType.AlwaysRepeat)
-//                .addOptimizationConstraints(100, 50, 5000, 2000)
-//                .addOptimizationConstraints(50, 15, 10000)
-//                .addOptimizationConstraints(15, 0, EventType.Off)
+                .addOptimizationConstraints(100, 50, 5000, 2000)
+                .addOptimizationConstraints(50, 15, 10000)
+                .addOptimizationConstraints(15, 0, EventType.Off)
                 .build();
         uqi.addEventListener(audioEvent, new AudioCallback() {
             @Override
